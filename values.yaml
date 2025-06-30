@@ -6,7 +6,7 @@ image:
   pullPolicy: IfNotPresent
 
 containerPort:
-  name: technical
+  name: ojf-metrics
   port: 4401
 
 service:
