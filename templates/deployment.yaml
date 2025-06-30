@@ -2,10 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: test-app
-  labels:
-    app: test-app
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       app: test-app
@@ -15,9 +13,9 @@ spec:
         app: test-app
     spec:
       containers:
-      - name: test-container
-        image: nginx:stable
-        ports:
-        - containerPort: 4401
-          name: ojf-metrics
-          protocol: TCP
+        - name: test-container
+          image: nginx:stable
+          ports:
+            - containerPort: {{ .Values.containerPortNumber }}
+              name: {{ .Values.containerPortName }}
+              protocol: TCP
