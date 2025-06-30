@@ -1,4 +1,4 @@
 replicaCount: 1
 
-containerPortName: technical
+containerPortName: ojf
 containerPortNumber: 4401
