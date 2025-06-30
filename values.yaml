@@ -1,0 +1,4 @@
+replicaCount: 1
+
+containerPortName: technical
+containerPortNumber: 4401
