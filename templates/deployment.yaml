@@ -20,4 +20,4 @@ spec:
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
         - containerPort: 4401
-          name: technical
+          name: ojf
