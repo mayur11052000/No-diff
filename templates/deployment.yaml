@@ -1,21 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: test-app
+  name: {{ include "test-app.fullname" . }}
+  labels:
+    app: {{ include "test-app.name" . }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: test-app
+      app: {{ include "test-app.name" . }}
   template:
     metadata:
       labels:
-        app: test-app
+        app: {{ include "test-app.name" . }}
     spec:
       containers:
-        - name: test-container
-          image: nginx:stable
-          ports:
-            - containerPort: {{ .Values.containerPortNumber }}
-              name: {{ .Values.containerPortName }}
-              protocol: TCP
+      - name: test-container
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+        - containerPort: {{ .Values.containerPort.port }}
+          name: {{ .Values.containerPort.name }}
+          protocol: TCP

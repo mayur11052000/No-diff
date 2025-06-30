@@ -1,4 +1,15 @@
 replicaCount: 1
 
-containerPortName: ojf-metrics
-containerPortNumber: 4401
+image:
+  repository: nginx
+  tag: stable
+  pullPolicy: IfNotPresent
+
+containerPort:
+  name: technical
+  port: 4401
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 4401
