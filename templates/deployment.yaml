@@ -19,5 +19,5 @@ spec:
         image: nginx:stable
         ports:
         - containerPort: 4401
-          name: technical
+          name: ojf-metrics
           protocol: TCP
