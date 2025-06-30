@@ -1,4 +1,4 @@
 replicaCount: 1
 
-containerPortName: ojf
+containerPortName: ojf-metrics
 containerPortNumber: 4401
