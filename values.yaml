@@ -13,3 +13,5 @@ service:
   type: ClusterIP
   port: 80
   targetPort: 4401
+
+annotations: {}   # no annotation initially

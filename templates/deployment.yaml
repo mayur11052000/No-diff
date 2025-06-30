@@ -2,8 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: test-app
-  labels:
-    app: test-app
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
@@ -13,12 +11,13 @@ spec:
     metadata:
       labels:
         app: test-app
+      annotations:
+{{ toYaml .Values.annotations | indent 8 }}
     spec:
       containers:
-      - name: test-container
+      - name: nginx
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
         - containerPort: {{ .Values.containerPort.port }}
           name: {{ .Values.containerPort.name }}
-          protocol: TCP
