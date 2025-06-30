@@ -5,6 +5,10 @@ image:
   tag: stable
   pullPolicy: IfNotPresent
 
+containerPort:
+  name: ojf
+  port: 4401
+
 service:
   type: ClusterIP
   port: 80
